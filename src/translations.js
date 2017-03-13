@@ -24,3 +24,4 @@ m.__applitools_test_failed = "Test failed";
 m.__applitools_test_aborted = "Test aborted";
 m.__applitools_check_region_notification_message = "Double-click or press Enter to confirm. Esc to cancel. Drag borders to resize.";
 m.__applitools_check_element_notification_message = "Select element to confirm. Esc to cancel.";
+m.__applitools_set_viewport_size_hint = "Note: Must leave playback window in foreground during local playback. If you get an error, try to decrease (or increase, in less cases) the values.";

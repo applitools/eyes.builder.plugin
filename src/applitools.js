@@ -71,7 +71,7 @@ var applitools = {
         }
 
         builder.selenium2.categories.push([_t('__applitools'), items]);
-        builder.selenium2.__stepNotes["setViewportSize"] = 'sel2_must_playback_in_foreground';
+        builder.selenium2.__stepNotes["setViewportSize"] = '__applitools_set_viewport_size_hint';
 
         this.promiseFactory = new window.EyesImages.PromiseFactory(function (asyncAction) {
             var deferred = jQuery.Deferred();
