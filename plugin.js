@@ -183,13 +183,16 @@ builder.dialogs.rc.show = (function() {
     var cached_function = builder.dialogs.rc.show;
     return function() {
         console.log("builder.dialogs.rc.show()");
-        if (!applitools.getTestName()) {
-            alert(_t('__applitools_test_name_required'));
-            return;
-        }
-        if (!applitools.getApiKey()) {
-            alert(_t('__applitools_apikey_required'));
-            return;
+        if (applitools.isRecordContainsEyesMethods()) {
+            if (!applitools.getTestName()) {
+                alert(_t('__applitools_test_name_required'));
+                return;
+            }
+
+            if (!applitools.getApiKey()) {
+                alert(_t('__applitools_apikey_required'));
+                return;
+            }
         }
         var result = cached_function.apply(this, arguments);
         return result;

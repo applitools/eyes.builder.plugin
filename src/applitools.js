@@ -236,6 +236,16 @@ var applitools = {
         };
     },
 
+    isRecordContainsEyesMethods: function () {
+        var steps = builder.getScript().steps;
+        for (var i = 0, l = steps.length; i < l; ++i) {
+            if (steps[i].type.name.substring(0, 5) == "eyes.") {
+                return true;
+            }
+        }
+        return false;
+    },
+
     validateWindow: function () {
         var title = applitools.getRecWinTitle();
         var checkWindowStep = new builder.Step(builder.selenium2.stepTypes["eyes.checkWindow"], title);

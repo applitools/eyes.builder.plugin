@@ -128,7 +128,7 @@ applitools.interface = {
         });
 
         jQuery('#record-stop-button').off('click').on('click', function (e) {
-            if (!applitools.getTestName()) {
+            if (applitools.isRecordContainsEyesMethods() && !applitools.getTestName()) {
                 alert(_t('__applitools_test_name_required'));
                 return;
             }
