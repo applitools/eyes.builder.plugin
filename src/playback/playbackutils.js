@@ -1,11 +1,11 @@
 /** Utils for working with remote webdriver. */
 applitools.playbackUtils = {};
 
-var JS_GET_DOCUMENT_READY_STATUS = "return document.readyState";
+var JS_GET_DOCUMENT_READY_STATUS = "return document.readyState;";
 
-var JS_GET_USER_AGENT = "return navigator.userAgent";
+var JS_GET_USER_AGENT = "return navigator.userAgent;";
 
-var JS_GET_DEVICE_PIXEL_RATIO = "return window.devicePixelRatio";
+var JS_GET_DEVICE_PIXEL_RATIO = "return window.devicePixelRatio;";
 
 var JS_GET_VIEWPORT_SIZE =
     "var height = undefined; " +
@@ -60,12 +60,15 @@ applitools.playbackUtils.sleep = function(ms) {
 
 applitools.playbackUtils.executeScript = function(r, script) {
     return applitools.promiseFactory.makePromise(function (resolve, reject) {
+        console.debug("Executing script:", script);
         builder.selenium2.rcPlayback.send(r, "POST", "/execute", JSON.stringify({
             'script': script,
             'args': []
         }), function (r, response) {
+            console.debug("Script executed successfully:", response);
             resolve(response.value);
         }, function (r, response) {
+            console.debug("Script executing failed:", response);
             reject(response);
         });
     });
