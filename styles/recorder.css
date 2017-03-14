@@ -172,17 +172,28 @@ a.applitools-button {
     font: 400 1.3rem/1.6rem 'Lato', sans-serif;
     color: #000;
     background: #f8f8f8;
-    padding: 0.4rem 1.7rem;
+    padding: 0;
     border-radius: 3px;
-    border: none;
     box-shadow: none;
 
     text-decoration: none;
     display: inline-block;
-    margin: 0 6px 6px 0;
-    min-width: 5rem;
+    margin: 0 1% 6px 0;
+    width: 32.666%;
     min-height: 1rem;
     text-align: center;
+}
+
+a.applitools-button span {
+    display: block;
+    padding: 0.4rem;
+}
+
+@media (max-width: 500px) {
+    a.applitools-button {
+        width: initial;
+        padding: 0 1rem;
+    }
 }
 
 a.applitools-button:last-child {
