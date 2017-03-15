@@ -198,3 +198,18 @@ builder.dialogs.rc.show = (function() {
         return result;
     };
 })();
+
+// Prevent recording certain keyPress events
+builder.selenium2.Recorder.prototype.writeJsonChange = (function() {
+    var cached_function = builder.dialogs.rc.show;
+    return function() {
+        console.log("builder.selenium2.Recorder.prototype.writeJsonChange()");
+        var e = arguments[0];
+        if (e.keyCode == 224) {
+            console.log("command key was skipped.");
+            return;
+        }
+        var result = cached_function.apply(this, arguments);
+        return result;
+    };
+})();
