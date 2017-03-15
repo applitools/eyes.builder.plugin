@@ -174,7 +174,11 @@ var applitools = {
     },
 
     getAvailableMatchLevels: function () {
-        return window.EyesImages.MatchLevel;
+        var list = $.extend(true, {}, window.EyesImages.MatchLevel);
+        if (list.Layout2) {
+            delete list['Layout2'];
+        }
+        return list;
     },
 
     getMatchLevel: function (useDefaultIfNotSpecified) {
