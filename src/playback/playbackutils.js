@@ -390,7 +390,7 @@ applitools.playbackUtils.takeScreenshot = function(r) {
     return applitools.promiseFactory.makePromise(function (resolve, reject) {
         applitools.playbackUtils.sleep(applitools.WAIT_BEFORE_SCREENSHOT).then(function () {
             builder.selenium2.rcPlayback.send(r, "GET", "/screenshot", "", function (r, response) {
-                var mutableImage = new window.EyesImages.MutableImage(response.value, applitools.promiseFactory);
+                var mutableImage = new window.EyesImages.MutableImage.fromBase64(response.value, applitools.promiseFactory);
                 resolve(mutableImage);
             }, function (r, response) {
                 reject(response);
